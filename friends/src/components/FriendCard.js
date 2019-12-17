@@ -28,6 +28,7 @@ const FriendCard = props => {
         <h2>{props.friend.name}</h2>
         <h2>{props.friend.age}</h2>
         <p>{props.friend.email}</p>
+        <button onClick={props.remove}>Delete Friend</button>
         </ItemContainer>
         </Wrapper>
         </div>

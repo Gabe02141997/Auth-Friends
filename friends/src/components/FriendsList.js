@@ -17,13 +17,25 @@ const FriendsList = props => {
           console.log(error)
       })
      },[])   
+
+
+   const deleteFriend = id => {
+     axiosWithAuth().delete(`/friends/${id}`)
+     .then(res => {
+         console.log(res)
+     })
+     .catch(error => {
+         console.log(error)
+     })
+   }
+
  
     return (
        <div>
           <h1>Friends</h1>
           <AddFriend/> 
           {friends && friends.map(friend => (
-              <FriendCard friend = {friend} key={friend.id}/> 
+              <FriendCard friend = {friend} key={friend.id} remove={()=>deleteFriend(friend.id)}/> 
           ))}
        </div>
     )
